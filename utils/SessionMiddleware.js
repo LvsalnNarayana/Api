@@ -7,6 +7,7 @@ export const store = new MongoDBStore({
     uri: process.env.MONGODB_URI,
     collection: 'sessions',
 });
+
 export const sessionMiddleware = session({
     cookie: {
         secure: true,

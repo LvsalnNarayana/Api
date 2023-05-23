@@ -7,7 +7,7 @@ var app = express();
 var server = createServer(app);
 
 app.use(cors({
-    origin: 'http://localhost:4200',
+    origin: 'https://api-tester-48e59.web.app/',
     credentials: true,
 }));
 
