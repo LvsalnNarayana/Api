@@ -12,9 +12,9 @@ export const sessionMiddleware = session({
         secure: false,
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: false,
-        sameSite: 'none'
+        sameSite: false
     },
-    name: 'test_it',
+    name: 'sesId',
     secret: process.env.JWT_SECRET,
     saveUninitialized: false,
     resave: true,
