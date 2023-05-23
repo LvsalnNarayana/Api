@@ -25,7 +25,7 @@ app.get('/', (req, res, next) => {
     console.log(req.headers);
     req.session.user = "this is a test user";
     req.session.save();
-    res.status(200).json({ "hello": "hello" });
+    res.status(200).json({ "hello": req.headers, "hello2": req.session });
 });
 
 export default server;
