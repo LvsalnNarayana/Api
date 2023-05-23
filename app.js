@@ -14,7 +14,13 @@ app.use(cors({
 app.use(sessionMiddleware);
 
 app.use(urlencoded({ extended: true }));
-
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://api-tester-48e59.web.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 app.get('/', (req, res, next) => {
     console.log(req.headers);
     req.session.user = "this is a test user";
