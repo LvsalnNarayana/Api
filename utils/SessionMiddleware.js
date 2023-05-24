@@ -12,12 +12,12 @@ export const sessionMiddleware = session({
     cookie: {
         secure: true,
         maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: false,
+        httpOnly: true,
         sameSite: 'none'
     },
     name: 'sesId',
     secret: process.env.JWT_SECRET,
-    saveUninitialized: false,
-    resave: true,
+    saveUninitialized: true,
+    resave: false,
     store: store,
 });
