@@ -25,6 +25,9 @@ app.get("/", (req, res, next) => {
   store.get(req.sessionID, (err, data) => {
     data_test = data;
   });
+  res.setHeader('Access-Control-Allow-Origin', 'https://api-tester-48e59.web.app');
+  res.setHeader('Access-Control-Allow-Methods', ['POST', 'GET', 'OPTIONS', 'DELETE']);
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type', 'x-requested-with');
   res.setHeader('Set-Cookie', 'myCookie=example-value; Path=/; Secure; SameSite=None');
   res
     .status(200)
