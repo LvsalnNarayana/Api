@@ -30,7 +30,12 @@ app.get("/", (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://api-tester-48e59.web.app');
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-requested-with');
-    res.setHeader('Set-Cookie', 'myCookie=example-value; Path=/; Secure; SameSite=None');
+    res.cookie('myCookie', 'example-value', {
+      path: '/',
+      secure: false,
+      sameSite: 'none',
+      httpOnly: false
+    });
     res.status(200).json({
       "request headers": req.headers,
       "cookies": req.cookies,
