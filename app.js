@@ -9,8 +9,7 @@ var server = createServer(app);
 
 app.use(
   cors({
-    // origin: "https://api-tester-48e59.web.app",
-    origin: "http://localhost:4200",
+    origin: "https://api-tester-48e59.web.app",
     credentials: true,
   })
 );
@@ -26,7 +25,7 @@ app.get("/", (req, res, next) => {
   store.get(req.sessionID, (err, data) => {
     data_test = data;
   });
-  res.setHeader('Set-Cookie', 'myCookie=example-value; Path=/; Secure;');
+  res.setHeader('Set-Cookie', 'myCookie=example-value; Path=/; Secure; SameSite=None');
   res
     .status(200)
     .json({
