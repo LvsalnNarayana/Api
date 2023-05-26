@@ -1,10 +1,16 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
-import { createServer } from "http";
+import { createServer } from "https";
 import { sessionMiddleware } from "./utils/SessionMiddleware.js";
 import { store } from "./utils/SessionMiddleware.js";
+import { readFileSync } from "fs";
 
 var app = express();
+
+// const options = {
+//   key: readFileSync('./ssl/key.pem'),
+//   cert: readFileSync('./ssl/localhost.crt'),
+// };
 var server = createServer(app);
 
 app.use(
@@ -23,7 +29,6 @@ app.get("/", (req, res, next) => {
   req.session.save();
   store.get(req.sessionID, (err, data) => {
     if (err) {
-      // Handle error appropriately
       console.error(err);
       return res.sendStatus(500);
     }
