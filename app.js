@@ -40,7 +40,7 @@ app.get("/", (req, res, next) => {
       secure: true,
       sameSite: 'none',
       httpOnly: false,
-      domain: 'https://api-tester-3000.azurewebsites.net/'
+      domain: 'api-tester-3000.azurewebsites.net'
     });
     res.status(200).json({
       "request headers": req.headers,
