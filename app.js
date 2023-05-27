@@ -1,6 +1,6 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
-import { createServer } from "https";
+import { createServer } from "http";
 import { sessionMiddleware } from "./utils/SessionMiddleware.js";
 import { store } from "./utils/SessionMiddleware.js";
 import { readFileSync } from "fs";
@@ -37,7 +37,7 @@ app.get("/", (req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-requested-with');
     res.cookie('myCookie', 'example-value', {
       path: '/',
-      secure: false,
+      secure: true,
       sameSite: 'none',
       httpOnly: false
     });
