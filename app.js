@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
       console.error(err);
       return res.sendStatus(500);
     }
-    res.status(200).send({ message: "this is a success message" });
+    res.status(200).send({ message: "this is a success message from node" });
   });
 });
 
