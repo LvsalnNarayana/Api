@@ -10,10 +10,8 @@ export const store = new MongoDBStore({
 
 export const sessionMiddleware = session({
     cookie: {
-        secure: true,
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: false,
-        sameSite: 'none'
     },
     name: 'sesId',
     secret: process.env.JWT_SECRET,
